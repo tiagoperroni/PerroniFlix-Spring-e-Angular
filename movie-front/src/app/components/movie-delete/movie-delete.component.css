@@ -1,0 +1,24 @@
+textarea {
+    min-height: 70px;
+    max-height: 70px;
+}
+
+.img-center{
+    margin-top: 1rem;
+    max-width: 80px;
+    margin-left: 40%;
+   
+}
+
+section {
+    height: 90vh;
+    background: url(/assets/img/bg.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+}
+
+.logo {
+    height: 20px;
+}

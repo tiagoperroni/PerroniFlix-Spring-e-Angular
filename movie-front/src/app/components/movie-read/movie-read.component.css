@@ -1,0 +1,12 @@
+img {
+    max-height: 150px;
+    max-width: 150px;
+}
+
+#paginator {
+    position: static;
+}
+
+.logo {
+    height: 20px;
+}

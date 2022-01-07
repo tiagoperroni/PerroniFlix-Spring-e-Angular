@@ -1,0 +1,24 @@
+.detail-img {
+    height: 100%; 
+}
+
+body { 
+    background: black ;
+    color: rgb(251, 251, 251); 
+    height: 100vh;
+}
+
+.container-fluid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+}
+
+p {
+    height: 200px;
+}
+
+.logo {
+    height: 20px;
+}

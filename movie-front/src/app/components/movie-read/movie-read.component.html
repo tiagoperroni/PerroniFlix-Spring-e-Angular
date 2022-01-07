@@ -1,0 +1,77 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Perroni-Flix</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse"
+      data-target="#navbarsExample02" aria-controls="navbarsExample02"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarsExample02">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/create" href="#">Cadastrar</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/tiagoperroni?tab=repositories" target="_blank"><img class="logo" src="assets/img/gitlogo.png">/tiagoperroni</a>
+        </li>
+      </ul>      
+      <form (ngSubmit)="buscarPorNome()" class="d-flex ms-3">
+        <input [(ngModel)]="filme.nome" name=nome class="form-control me-2" type="search" placeholder="Buscar..."
+          aria-label="Search">
+        <button class="btn btn-outline-primary"
+          type="submit">Buscar</button>
+      </form>
+    </div>
+  </div>
+</nav>
+  
+
+<div class="main-content mt-3">
+  <div class="section-content section-content-p30">
+    <div class="container-fluid">
+      <div class="row">
+        <!--Card 1-->
+        <div *ngFor="let filme of filmes | slice: (page-1) * pageSize : page * pageSize" class="col-md-3">
+          <div class="card card-cascade winder shadow mb-4">
+            <!--Card image-->
+            <div class="view view-cascade overlay text-center">
+              <a routerLink="/details/{{ filme.id }}">
+                <img src="{{ filme.imageUrl }}" alt="filme.imageUrl" class="img-responsive mt-1">
+              </a>
+              <a>
+                <div class="mask rgba-white-slight"></div>
+              </a>
+            </div>
+            <!--Card Body-->
+            <div class="card-body card-body-cascade text-center">
+              <!--Card Title-->
+              <h4 class="card-title"><strong>{{ filme.nome }}</strong></h4> <!-- Card Description-->
+              <p class="card-text"><strong>{{ filme.genero.nome}}</strong></p>
+              <h6 class="card-text" maxlength="10">{{ filme.descricao}}</h6>
+              <p class="price"> <strong>Lançamento: {{ filme.dataLancamento }}</strong></p> <!-- Card Rating-->
+
+              <!--Card footer-->
+              <div class="card-footer footer-dark bg-dark">
+                <button routerLink="/update/{{ filme.id}}" class="btn btn-outline-primary">Editar</button>
+                <button class="btn btn-outline-warning ms-2" routerLink="/details/{{ filme.id}}">Detalhes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- if products empty then show message -->
+        <div *ngIf="filmes?.length == 0" class="alert alert-warning col-md-12" role="alert">
+          Nenhum filme cadastrado.
+        </div>
+      </div>   
+      <div id="paginator" class="float-end">
+        <ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="filmes.length"></ngb-pagination>
+       </div>
+    
+
+    </div>
+  </div>
+</div>

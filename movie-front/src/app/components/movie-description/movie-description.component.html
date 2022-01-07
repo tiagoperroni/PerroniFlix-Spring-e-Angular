@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body> 
+  
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Perroni-Flix</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse"
+        data-target="#navbarsExample02" aria-controls="navbarsExample02"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarsExample02">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/create" href="#">Cadastrar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/tiagoperroni?tab=repositories" target="_blank"><img class="logo" src="assets/img/gitlogo.png">/tiagoperroni</a>
+          </li>
+        </ul>      
+      </div>
+    </div>
+  </nav>
+  
+  <div class="detail-section pt-5">
+      <div class="container-fluid">
+        <div class="row mt-5 justify-content-center">
+          <div class="col-md-2">
+            <img src="{{ filme.imageUrl }}" class="detail-img">            
+          </div>
+          <div class="col-md-5">
+            <h2 class="card-title">{{ filme.nome }}</h2>
+            <div class="price">Gênero: {{ filme.genero.nome  }}</div>  
+            <div class="price">Lançamento: {{ filme.dataLancamento  }}</div>              
+            <hr>
+            <h3>Sinopse</h3>
+            <p>{{ filme.sinopse }}</p>
+            <hr>
+            <div >
+              <button routerLink="/update/{{ filme.id}}" class="btn btn-outline-primary btn-lg">Editar</button>
+              <button routerLink="/delete/{{ filme.id}}" class="btn btn-outline-danger btn-lg ms-2">Deletar</button>
+              <button routerLink="/" class="btn btn-outline-secondary btn-lg ms-2">Voltar</button>        
+            </div>
+          </div>          
+        </div>  
+      </div>
+    </div>  
+</body>
+</html>
